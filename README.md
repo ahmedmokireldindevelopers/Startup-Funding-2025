@@ -1,70 +1,97 @@
-# 🌍 Startup Funding & SaaS Perks Directory
+# Startup Funding & Build System
 
-A comprehensive, up-to-date directory of international cloud credits, startup accelerators, and SaaS perks for founders and early-stage tech companies.
+A unified founder workspace that combines a practical startup-building library with a source-first directory of startup credits, grants, accelerators, discounts, and ecosystem programs.
 
-**Curated & maintained by [Ahmed Mokireldin](mailto:ahmedmokireldindevelopers@gmail.com)**  
-_International funding consultant, SaaS platform architect, startup mentor._
+## What is included?
 
----
+This repository now combines two complementary projects:
 
-## 🚀 What is this?
+### 1. Founder operating system
 
-This open-source project lists:
+The React/Vite dashboard at `/` turns the learning library into a seven-phase workflow:
 
-- Cloud & infrastructure credits (AWS, Google Cloud, Azure, etc)
-- SaaS discounts & startup programs (HubSpot, Intercom, Notion, etc)
-- Regional/global accelerators, grants & special offers
+1. Discover the customer problem and business model.
+2. Validate assumptions and define the MVP.
+3. Build and learn through an iterative delivery cycle.
+4. Monetize with pricing, revenue, and SaaS economics.
+5. Go to market and build repeatable demand.
+6. Operate with finance, people, risk, and KPI systems.
+7. Fundraise with a pitch deck, model, data room, and investor pipeline.
 
-It helps founders quickly identify programs they're eligible for, maximizing their runway and growth.
+Open the dashboard to search the work table, filter by phase or status, mark outcomes complete, and open the exact PDF, spreadsheet, CSV, or DOCX reference attached to each outcome.
 
----
+### 2. Startup programs directory
 
-## 🖼️ Preview
+The directory is a source-first, apply-ready catalog researched from official provider, fund, government, and accelerator pages. It covers:
 
-![screenshot](public/screenshot.png) <!-- Add a screenshot if you like -->
+- Cloud and AI credits.
+- SaaS discounts and startup perks.
+- Grants and non-dilutive funding.
+- Accelerators and ecosystem programs.
+- Global, China, Ukraine, and open-source resources.
+- Coupon assessments and community leads clearly separated from verified official sources.
 
----
+The current research snapshot is maintained in [`programs.csv`](programs.csv), with 38 active program records. Always re-check the official application page before applying because eligibility, benefits, and dates can change.
 
-## 📦 How to Run Locally
+## Repository map
+
+| Area | Purpose |
+|---|---|
+| `src/` | React dashboard and visual system |
+| `Business Models - Super Guides Bundle/` | 54 PDFs covering business models, MVP, pricing, GTM, metrics, and fundraising |
+| `Business Explained/` | Management, finance, operations, marketing, people, and technology references |
+| `SAAS Toolkit/` | SaaS spreadsheets, CSVs, investor lists, templates, and operating models |
+| `programs.csv` | Canonical machine-readable startup-program catalog |
+| `categories/` | Program views by category |
+| `global/` | Global credits, accelerators, and additional programs |
+| `china/` | China cloud and AI programs |
+| `ukraine/` | Ukraine grants and ecosystem programs |
+| `open-source/` | Open-source alternatives and supporting directory |
+| `communities/` | Public Reddit and Telegram discovery communities |
+| `imports/` | Imported research inputs and source notes |
+| `archive/` | Programs not currently verified as open or active |
+| `.github/workflows/` | Link and freshness checks for the directory |
+| `MERGE_NOTES.md` | Decisions made during the two-repository merge |
+
+The exact-duplicate `data/catalog.csv` was intentionally not retained because it was byte-for-byte identical to `programs.csv`. See [`data/README.md`](data/README.md).
+
+## Run the dashboard locally
 
 ```bash
-git clone https://github.com/ahmedmokireldindevelopers/startup-perks-funding.git
-cd startup-perks-funding
+git clone https://github.com/ahmedmokireldindevelopers/Startup-Funding-2025.git
+cd Startup-Funding-2025
 npm install
 npm run dev
 ```
-Visit [http://localhost:5173](http://localhost:5173)
 
----
+Open `http://localhost:5173`.
 
-## 🏢 Adding Provider Logos
+To create a production build:
 
-Place PNG/SVG logo files in `public/icons/` using names matching the mapping in `ProviderIcon.tsx`.  
-Example:  
-- `aws.png` for Amazon Web Services  
-- `google-cloud.png` for Google Cloud  
-...and so on.
+```bash
+npm run build
+```
 
----
+## How to use the unified system
 
-## 📝 Contributing
+Start with the dashboard and complete the outcomes in order. For each outcome, read only the linked references needed for the current decision, create the deliverable, record the metric, and keep the evidence in your project workspace. Once the business has evidence of customer demand and operating discipline, use the programs directory to match the company against credits, grants, accelerators, and ecosystem support.
 
-PRs welcome!  
-- Add new programs to [`src/data/perks.csv`](src/data/perks.csv) or [`src/data/perks.json`](src/data/perks.json).
-- Add logos to the [`public/icons/`](public/icons/) folder.
-- If unsure, [contact Ahmed Mokireldin](mailto:ahmedmokireldindevelopers@gmail.com).
+Use `programs.csv` to filter by provider, region, type, stage, status, and category. Use the linked Markdown pages for the detailed eligibility and application roadmap. The official application link is the source of truth; the directory is a research aid, not a guarantee of eligibility or funding.
 
----
+## Updating the directory
 
-## 💼 Consulting & Support
+The directory follows these quality rules:
 
-Need help applying, pitching, or maximizing these benefits?  
-Want to build a SaaS or funding-ready startup?  
-Contact **Ahmed Mokireldin** — _10+ years experience in international startup funding & SaaS platforms._  
-📧 [ahmedmokireldindevelopers@gmail.com](mailto:ahmedmokireldindevelopers@gmail.com)
+- Prefer a primary official source.
+- Do not infer eligibility, deadlines, amounts, or documents.
+- Keep the README tables, category pages, detail pages, and `programs.csv` synchronized when changing an active entry.
+- Use the exact status badges: `✅ Open`, `🔄 Rolling`, `⏳ Opens soon`, or `❌ Closed`.
+- Move expired, closed, or insufficiently verified entries to `archive/`.
+- Update `last_verified` whenever a row changes.
+- Treat Reddit, Telegram, and community references as discovery leads only, never as proof of a working coupon or offer.
 
----
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the complete entry and coupon-field rules.
 
-## 📄 License
+## Licensing and source rights
 
-[MIT](LICENSE)
+The root MIT license covers the project code unless a resource states otherwise. The PDFs, spreadsheets, DOCX files, and third-party directory content may have separate copyrights or terms. Review the source and usage rights before redistributing, selling, or placing any resource in a paid product.
