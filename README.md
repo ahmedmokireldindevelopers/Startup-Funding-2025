@@ -42,6 +42,7 @@ The current research snapshot is maintained in [`programs.csv`](programs.csv), w
 | `Business Explained/` | Management, finance, operations, marketing, people, and technology references |
 | `SAAS Toolkit/` | SaaS spreadsheets, CSVs, investor lists, templates, and operating models |
 | `programs.csv` | Canonical machine-readable startup-program catalog |
+| `data/israel-startup-programs-2026.csv` | Verified Israel-linked international startup funding routes |
 | `categories/` | Program views by category |
 | `global/` | Global credits, accelerators, and additional programs |
 | `china/` | China cloud and AI programs |
@@ -54,6 +55,8 @@ The current research snapshot is maintained in [`programs.csv`](programs.csv), w
 | `MERGE_NOTES.md` | Decisions made during the two-repository merge |
 
 The exact-duplicate `data/catalog.csv` was intentionally not retained because it was byte-for-byte identical to `programs.csv`. See [`data/README.md`](data/README.md).
+
+The focused report [`docs/ISRAEL-STARTUP-FUNDING-2026.md`](docs/ISRAEL-STARTUP-FUNDING-2026.md) covers 10 verified bilateral or multilateral routes. It distinguishes programs that require an Israeli partner from any route open to a foreign startup alone. The review found no confirmed Israeli public program in scope that lets a non-Israeli startup apply alone for direct funding.
 
 ## Run the dashboard locally
 
