@@ -9,4 +9,7 @@
 - [x] Persist completed task state in the browser.
 - [x] Add responsive styling for desktop and mobile widths.
 - [x] Add a route manifest for the dashboard.
+- [x] Add a detailed Big Funnel roadmap table to the main page with stage gates, user actions, exit evidence, and funnel movement.
+- [x] Add responsive styling for the Big Funnel roadmap table.
+- [x] Add a secure-files guide covering private repositories, AES-256 archives, protected PDFs, and investor data rooms.
 - [ ] Optional next iteration: add editable project profile fields and exportable project plans.

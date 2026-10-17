@@ -50,7 +50,7 @@ The current research snapshot is maintained in [`programs.csv`](programs.csv), w
 | `communities/` | Public Reddit and Telegram discovery communities |
 | `imports/` | Imported research inputs and source notes |
 | `archive/` | Programs not currently verified as open or active |
-| `.github/workflows/` | Link and freshness checks for the directory |
+| `.github/link-check-workflow.yml` | Ready-to-enable link and freshness check workflow |
 | `MERGE_NOTES.md` | Decisions made during the two-repository merge |
 
 The exact-duplicate `data/catalog.csv` was intentionally not retained because it was byte-for-byte identical to `programs.csv`. See [`data/README.md`](data/README.md).
@@ -77,6 +77,10 @@ npm run build
 Start with the dashboard and complete the outcomes in order. For each outcome, read only the linked references needed for the current decision, create the deliverable, record the metric, and keep the evidence in your project workspace. Once the business has evidence of customer demand and operating discipline, use the programs directory to match the company against credits, grants, accelerators, and ecosystem support.
 
 Use `programs.csv` to filter by provider, region, type, stage, status, and category. Use the linked Markdown pages for the detailed eligibility and application roadmap. The official application link is the source of truth; the directory is a research aid, not a guarantee of eligibility or funding.
+
+The dashboard's **Big Funnel roadmap** is the main sequence: problem clarity → evidence of need → usable proof → economic proof → repeatable demand → company readiness → investor conversion. Each gate includes the user action, exit evidence, and the funnel movement expected before advancing.
+
+For document access and password protection, read [`docs/SECURE-FILES.md`](docs/SECURE-FILES.md). Public GitHub files cannot be securely protected by a front-end password; use a private repository, AES-256 archive, or controlled data room instead.
 
 ## Updating the directory
 

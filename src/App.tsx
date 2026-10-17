@@ -20,6 +20,14 @@ type WorkItem = {
   references: { label: string; path: string }[];
 };
 
+type RoadmapStep = {
+  phase: string;
+  gate: string;
+  action: string;
+  exit: string;
+  funnel: string;
+};
+
 const repo = "https://github.com/ahmedmokireldindevelopers/Startup-Funding-2025/blob/main/";
 const asset = (path: string) => `${repo}${path.split(" ").map(encodeURIComponent).join("%20")}`;
 
@@ -48,6 +56,16 @@ const workItems: WorkItem[] = [
   { id: "w12", phase: "fundraise", outcome: "Package the investment case", action: "Turn problem, solution, market, traction, economics, team, and use of funds into a concise investor narrative and model.", deliverable: "One-pager + pitch deck + financial model", metric: "12–14 slide deck; 3 scenarios; clear ask", references: [{ label: "Perfect Business Plan", path: "Business Models - Super Guides Bundle/47. The_Perfect_Business_Plan-gftkhw.pdf" }, { label: "Competitive Analysis", path: "Business Models - Super Guides Bundle/50. Competitive_Analysis_Strategies-gmj5gq.pdf" }, { label: "How Companies Make Money", path: "Business Models - Super Guides Bundle/43. How_Companies_Make_Money-yldxqv.pdf" }, { label: "Project Management Cheat Sheet", path: "Business Explained/📅 Project Management Cheat Sheet by Elevate Sheets.xlsx" }] },
   { id: "w13", phase: "fundraise", outcome: "Build a qualified investor pipeline", action: "Segment angels, seed funds, accelerators, grants, and strategic investors by stage, sector, geography, check size, and warm-intro path.", deliverable: "Investor CRM + outreach sequence", metric: "50 qualified targets; 10 warm paths; weekly follow-up", references: [{ label: "Seed Investors", path: "SAAS Toolkit/Toolkit-A/+900 SaaS Seed Investors .xlsx" }, { label: "Angel Investors", path: "SAAS Toolkit/Toolkit-A/+1200 SaaS Angel Investors  .xlsx" }, { label: "Active Seed Investors", path: "SAAS Toolkit/Toolkit-A/Active Seed Stage SaaS Investors.xlsx" }, { label: "Pitch Deck Templates", path: "SAAS Toolkit/Airtable sheets/Pitch Decks Templates of 46 Startups Before They Became Billion-Dollar Companies-Grid view.csv" }] },
   { id: "w14", phase: "fundraise", outcome: "Run investor conversations professionally", action: "Customize each email, lead with evidence, track the relationship, prepare diligence answers, and never send sensitive data before a controlled data-room step.", deliverable: "Investor outreach log + data room", metric: "Personalized outreach; response and meeting rates tracked", references: [{ label: "Email Subject Lines", path: "SAAS Toolkit/Toolkit-A/Email Subject Lines to Boost Your SaaS Sales .xlsx" }, { label: "Responsive Email Templates", path: "SAAS Toolkit/Toolkit-A/Collection of Responsive Email Templates for Your SaaS Company.xlsx" }, { label: "Negotiation", path: "Business Explained/Negotiation-Strategies-and-Techniques-EXPLAINED-by-Business-Explained-v2.pdf" }, { label: "Strategy Planning", path: "Business Models - Super Guides Bundle/42. Strategy_Planning_Tools_and_Models.pdf" }] },
+];
+
+const roadmap: RoadmapStep[] = [
+  { phase: "01 · Discover", gate: "Problem clarity", action: "Interview the target segment, choose the narrowest urgent problem, and write the first business-model hypothesis.", exit: "ICP, problem brief, and one primary model are documented.", funnel: "Raw idea → qualified problem" },
+  { phase: "02 · Validate", gate: "Evidence of need", action: "Test the riskiest assumptions with interviews, prototypes, landing pages, and willingness-to-pay conversations.", exit: "Repeated pain signal plus an experiment result that supports the next build.", funnel: "Qualified problem → engaged prospects" },
+  { phase: "03 · Build MVP", gate: "Usable proof", action: "Ship one end-to-end workflow, instrument the key event, and run a weekly learn–release–review loop.", exit: "A real user completes the core job and the team has a learning backlog.", funnel: "Engaged prospects → activated users" },
+  { phase: "04 · Monetize", gate: "Economic proof", action: "Test packages and value metrics, model CAC/LTV/churn/runway, and convert the strongest use case into a paid offer.", exit: "Pricing, unit economics, and a cash plan are explicit.", funnel: "Activated users → paying customers" },
+  { phase: "05 · Go to market", gate: "Repeatable demand", action: "Pick one primary channel, define the customer journey, create the sales motion, and build a 90-day pipeline plan.", exit: "A repeatable acquisition and retention loop has a baseline metric.", funnel: "Paying customers → retained growth" },
+  { phase: "06 · Operate", gate: "Company readiness", action: "Assign owners, run KPI reviews, close legal/security/finance gaps, and maintain a risk and hiring plan.", exit: "The business can explain performance, ownership, risks, and runway.", funnel: "Retained growth → investable company" },
+  { phase: "07 · Fundraise", gate: "Investor conversion", action: "Package the evidence into a deck, model, data room, and segmented outreach pipeline; learn from every investor conversation.", exit: "Qualified investor meetings, diligence readiness, and a clear funding ask.", funnel: "Investable company → capital + strategic access" },
 ];
 
 const phaseById = Object.fromEntries(phases.map((phase) => [phase.id, phase]));
@@ -92,6 +110,11 @@ function App() {
         <section className="phase-rail" aria-label="Founder journey phases">
           <button className={selectedPhase === "all" ? "phase-tab active" : "phase-tab"} onClick={() => setSelectedPhase("all")}><span className="phase-number">00</span><span><small>Overview</small><strong>All work</strong></span></button>
           {phases.map((phase) => <button key={phase.id} className={selectedPhase === phase.id ? `phase-tab active ${phase.color}` : `phase-tab ${phase.color}`} onClick={() => setSelectedPhase(phase.id)}><span className="phase-number">{phase.number}</span><span><small>{phase.label}</small><strong>{phase.title}</strong></span></button>)}
+        </section>
+
+        <section className="roadmap-section" aria-labelledby="big-funnel-roadmap">
+          <div className="section-heading"><div><div className="eyebrow blue-text">Big Funnel roadmap</div><h2 id="big-funnel-roadmap">The path from learning to leverage</h2><p className="roadmap-intro">Use this table as the front-door operating plan. Do not advance because a document is finished; advance when the exit evidence is true.</p></div><div className="roadmap-badge">7 gates · 1 evidence loop</div></div>
+          <div className="roadmap-table-wrap"><table className="roadmap-table"><thead><tr><th>Stage / gate</th><th>What the user does</th><th>Exit evidence</th><th>Funnel movement</th></tr></thead><tbody>{roadmap.map((step) => <tr key={step.phase}><th scope="row"><span>{step.phase}</span><strong>{step.gate}</strong></th><td>{step.action}</td><td>{step.exit}</td><td><span className="funnel-signal">{step.funnel}</span></td></tr>)}</tbody></table></div>
         </section>
 
         <section className="context-row"><div><div className="eyebrow">{activePhase.number === "01" && selectedPhase === "all" ? "Start here" : activePhase.label}</div><h2>{selectedPhase === "all" ? "The founder journey, made executable" : activePhase.title}</h2><p>{selectedPhase === "all" ? "Every row below connects an action to an output, a metric, and the exact file to study. Do the work, keep the evidence, and let the evidence earn the next conversation." : activePhase.summary}</p></div><div className="outcome-callout"><span>Phase outcome</span><strong>{selectedPhase === "all" ? "A fundable operating system" : activePhase.outcome}</strong></div></section>
